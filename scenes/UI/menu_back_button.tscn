@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://n20f0p83ggum"]
+
+[ext_resource type="Script" path="res://scripts/menu_back_button.gd" id="1_5e4rf"]
+
+[node name="MenuBackButton" type="Button"]
+anchors_preset = -1
+anchor_left = 0.0078125
+anchor_top = 0.0138889
+anchor_right = 0.0548125
+anchor_bottom = 0.0698889
+offset_right = -0.128002
+offset_bottom = -0.256001
+text = "Back"
+script = ExtResource("1_5e4rf")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
