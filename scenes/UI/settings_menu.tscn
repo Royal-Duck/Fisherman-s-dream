@@ -1,0 +1,123 @@
+[gd_scene load_steps=4 format=3 uid="uid://b438vw8n43rsk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yp7ae"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_1mesr"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_ypap6"]
+font_color = Color(1, 0, 0, 1)
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.389287, 0.389287, 0.389287, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375125
+anchor_top = 0.0691111
+anchor_right = 0.62525
+anchor_bottom = 0.222556
+offset_left = -0.128052
+offset_top = 0.191998
+offset_right = -0.256042
+offset_bottom = -0.192017
+text = "Settings"
+label_settings = SubResource("LabelSettings_yp7ae")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Columnus" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.222222
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Rows1" type="VBoxContainer" parent="Columnus"]
+layout_mode = 2
+
+[node name="SoundCategory" type="Label" parent="Columnus/Rows1"]
+layout_mode = 2
+text = "Sounds :"
+label_settings = SubResource("LabelSettings_1mesr")
+
+[node name="MainVolumeIndication" type="Label" parent="Columnus/Rows1"]
+layout_mode = 2
+text = "Main Volume : "
+
+[node name="MainVolumeSlider" type="HSlider" parent="Columnus/Rows1"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicVolumeIndication" type="Label" parent="Columnus/Rows1"]
+layout_mode = 2
+text = "Music Volume : "
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Columnus/Rows1"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SfxVolumeIndication" type="Label" parent="Columnus/Rows1"]
+layout_mode = 2
+text = "Sound effects Volume : "
+
+[node name="SfxVolumeSlider" type="HSlider" parent="Columnus/Rows1"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="GraphicsCategory" type="Label" parent="Columnus/Rows1"]
+layout_mode = 2
+text = "Graphics :"
+label_settings = SubResource("LabelSettings_1mesr")
+
+[node name="MaxFPSIndication" type="Label" parent="Columnus/Rows1"]
+layout_mode = 2
+text = "Max FPS : "
+
+[node name="MaxFPSSelector" type="OptionButton" parent="Columnus/Rows1"]
+layout_mode = 2
+selected = 1
+item_count = 3
+popup/item_0/text = "30"
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "120"
+popup/item_2/id = 2
+
+[node name="WIP" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.958
+anchor_right = 0.344
+anchor_bottom = 1.0
+offset_top = 0.191956
+offset_right = -0.256012
+text = "TODO : split other settings in another column"
+label_settings = SubResource("LabelSettings_ypap6")
+metadata/_edit_use_anchors_ = true
