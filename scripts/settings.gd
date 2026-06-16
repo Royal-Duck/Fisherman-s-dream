@@ -4,6 +4,7 @@ const config_file_path = "user://settings.cfg"
 var config_file := ConfigFile.new()
 
 var max_fps : int = 60
+var vertical_sync : bool = true
 var main_volume : float = 1.0
 var music_volume : float = 1.0
 var sfx_volume : float = 1.0
@@ -13,6 +14,7 @@ func apply_settings() -> void:
 
 func save_settings() -> void:
 	config_file.set_value("Graphics", "MaxFPS", max_fps)
+	config_file.set_value("Graphics", "VSync", vertical_sync)
 	config_file.set_value("Sound", "MainVolume", main_volume)
 	config_file.set_value("Sound", "MusicVolume", music_volume)
 	config_file.set_value("Sound", "SfxVolume", sfx_volume)
@@ -22,6 +24,7 @@ func save_settings() -> void:
 func load_settings() -> void:
 	config_file.load(config_file_path)
 	max_fps = config_file.get_value("Graphics", "MaxFPS")
+	vertical_sync = config_file.get_value("Graphics", "VSync")
 	main_volume = config_file.get_value("Sound", "MainVolume")
 	music_volume = config_file.get_value("Sound", "MusicVolume")
 	sfx_volume = config_file.get_value("Sound", "SfxVolume")

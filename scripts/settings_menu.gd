@@ -1,5 +1,7 @@
 extends Control
 
+@export var advanced_graphics : PackedScene
+
 var save_cooldown : float = 0.0
 
 func _ready() -> void:
@@ -30,3 +32,6 @@ func _on_sfx_volume_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		Settings.sfx_volume = $Columnus/Rows1/SfxVolumeSlider.value
 		Settings.save_settings()
+
+func _on_advanced_graphics_button_pressed() -> void:
+	GameState.switch_to_menu(get_tree().current_scene, advanced_graphics)

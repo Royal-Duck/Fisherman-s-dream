@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b438vw8n43rsk"]
+[gd_scene format=3 uid="uid://b438vw8n43rsk"]
 
-[ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_do58f"]
+[ext_resource type="Script" uid="uid://dyi6rlvfd600t" path="res://scripts/settings_menu.gd" id="1_do58f"]
 [ext_resource type="PackedScene" uid="uid://n20f0p83ggum" path="res://scenes/UI/menu_back_button.tscn" id="1_uy6x0"]
+[ext_resource type="PackedScene" uid="uid://cmfrfrojplvl2" path="res://scenes/UI/advanced_graphical_settings_menu.tscn" id="2_son7u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yp7ae"]
 font_size = 64
@@ -12,7 +13,7 @@ font_size = 24
 [sub_resource type="LabelSettings" id="LabelSettings_ypap6"]
 font_color = Color(1, 0, 0, 1)
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" unique_id=1661123578]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,8 +21,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_do58f")
+advanced_graphics = ExtResource("2_son7u")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1873182082]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,14 +32,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.389287, 0.389287, 0.389287, 1)
 
-[node name="MenuBackButton" parent="." instance=ExtResource("1_uy6x0")]
+[node name="MenuBackButton" parent="." unique_id=1591767046 instance=ExtResource("1_uy6x0")]
 layout_mode = 1
 anchor_left = 0.015625
 anchor_top = 0.0277778
 anchor_right = 0.062625
 anchor_bottom = 0.0837778
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=1053011174]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.375125
@@ -53,7 +55,7 @@ label_settings = SubResource("LabelSettings_yp7ae")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Columnus" type="HBoxContainer" parent="."]
+[node name="Columnus" type="HBoxContainer" parent="." unique_id=1831774664]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.222222
@@ -64,64 +66,73 @@ grow_vertical = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Rows1" type="VBoxContainer" parent="Columnus"]
+[node name="Rows1" type="VBoxContainer" parent="Columnus" unique_id=677938346]
 layout_mode = 2
 
-[node name="SoundCategory" type="Label" parent="Columnus/Rows1"]
+[node name="SoundCategory" type="Label" parent="Columnus/Rows1" unique_id=1991472592]
 layout_mode = 2
 text = "Sounds :"
 label_settings = SubResource("LabelSettings_1mesr")
 
-[node name="MainVolumeIndication" type="Label" parent="Columnus/Rows1"]
+[node name="MainVolumeIndication" type="Label" parent="Columnus/Rows1" unique_id=796472959]
 layout_mode = 2
 text = "Main Volume : "
 
-[node name="MainVolumeSlider" type="HSlider" parent="Columnus/Rows1"]
+[node name="MainVolumeSlider" type="HSlider" parent="Columnus/Rows1" unique_id=773832366]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="MusicVolumeIndication" type="Label" parent="Columnus/Rows1"]
+[node name="MusicVolumeIndication" type="Label" parent="Columnus/Rows1" unique_id=19109518]
 layout_mode = 2
 text = "Music Volume : "
 
-[node name="MusicVolumeSlider" type="HSlider" parent="Columnus/Rows1"]
+[node name="MusicVolumeSlider" type="HSlider" parent="Columnus/Rows1" unique_id=456993006]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="SfxVolumeIndication" type="Label" parent="Columnus/Rows1"]
+[node name="SfxVolumeIndication" type="Label" parent="Columnus/Rows1" unique_id=790254993]
 layout_mode = 2
 text = "Sound effects Volume : "
 
-[node name="SfxVolumeSlider" type="HSlider" parent="Columnus/Rows1"]
+[node name="SfxVolumeSlider" type="HSlider" parent="Columnus/Rows1" unique_id=1219832680]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="GraphicsCategory" type="Label" parent="Columnus/Rows1"]
+[node name="GraphicsCategory" type="Label" parent="Columnus/Rows1" unique_id=1364360070]
 layout_mode = 2
 text = "Graphics :"
 label_settings = SubResource("LabelSettings_1mesr")
 
-[node name="MaxFPSIndication" type="Label" parent="Columnus/Rows1"]
+[node name="MaxFPSIndication" type="Label" parent="Columnus/Rows1" unique_id=373464747]
 layout_mode = 2
 text = "Max FPS : "
 
-[node name="MaxFPSSelector" type="OptionButton" parent="Columnus/Rows1"]
+[node name="MaxFPSSelector" type="OptionButton" parent="Columnus/Rows1" unique_id=789849971]
 layout_mode = 2
 selected = 1
 item_count = 3
 popup/item_0/text = "30"
+popup/item_0/id = 0
 popup/item_1/text = "60"
 popup/item_1/id = 1
 popup/item_2/text = "120"
 popup/item_2/id = 2
 
-[node name="WIP" type="Label" parent="."]
+[node name="AdvancedGraphicsIndication" type="Label" parent="Columnus/Rows1" unique_id=651626475]
+layout_mode = 2
+text = "More : "
+
+[node name="AdvancedGraphicsButton" type="Button" parent="Columnus/Rows1" unique_id=546200571]
+layout_mode = 2
+text = "Advanced Graphics options"
+
+[node name="WIP" type="Label" parent="." unique_id=133283002]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.958
@@ -138,3 +149,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="drag_ended" from="Columnus/Rows1/MusicVolumeSlider" to="." method="_on_music_volume_slider_drag_ended"]
 [connection signal="drag_ended" from="Columnus/Rows1/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_drag_ended"]
 [connection signal="item_selected" from="Columnus/Rows1/MaxFPSSelector" to="." method="_on_max_fps_selector_item_selected"]
+[connection signal="pressed" from="Columnus/Rows1/AdvancedGraphicsButton" to="." method="_on_advanced_graphics_button_pressed"]
