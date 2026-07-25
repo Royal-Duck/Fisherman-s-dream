@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://1x5fv774kl7u"]
+
+[ext_resource type="PackedScene" uid="uid://bnanh6mp1ml7a" path="res://scenes/world/environment_3d.tscn" id="1_env3d"]
+
+[node name="FishingSpot" type="Control" unique_id=1253611664]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=970535188]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=692194592]
+handle_input_locally = false
+size = Vector2i(1024, 576)
+render_target_update_mode = 4
+
+[node name="Environment3D" parent="SubViewportContainer/SubViewport" unique_id=112535329 instance=ExtResource("1_env3d")]
+
+[node name="Overlay2D" type="Control" parent="." unique_id=364780983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerPlaceholder" type="ColorRect" parent="Overlay2D" unique_id=908091726]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 176.0
+offset_right = 340.0
+offset_bottom = 296.0
+color = Color(1, 0.85, 0.2, 1)
