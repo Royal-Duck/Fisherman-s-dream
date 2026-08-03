@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b3g1bgq5ia0wc"]
+
+[ext_resource type="Texture2D" uid="uid://dh17jucutry6x" path="res://assets/textures/MainMenuImage.png" id="1_pq8q7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pyidc"]
+
+[sub_resource type="GDScript" id="GDScript_pq8q7"]
+script/source = "extends MeshInstance3D
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	rotation.x += PI / 10.0 * delta
+"
+
+[node name="root" type="Node" unique_id=1654189394]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=776060547]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="bottom_layer" type="SubViewport" parent="SubViewportContainer" unique_id=514181231]
+handle_input_locally = false
+size = Vector2i(1024, 576)
+render_target_update_mode = 4
+
+[node name="world" type="Node3D" parent="SubViewportContainer/bottom_layer" unique_id=1852767611]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/bottom_layer/world" unique_id=1058230159]
+mesh = SubResource("BoxMesh_pyidc")
+script = SubResource("GDScript_pq8q7")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/bottom_layer/world" unique_id=606707757]
+transform = Transform3D(1, 0, 0, 0, 0.9676564, 0.252272, 0, -0.252272, 0.9676564, 0, 0.8885056, 2.1085021)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/bottom_layer/world" unique_id=1474742112]
+transform = Transform3D(1, 0, 0, 0, 0.7725452, 0.63495976, 0, -0.63495976, 0.7725452, 0, 0, 0)
+
+[node name="top_layer" type="Node2D" parent="." unique_id=300003831]
+
+[node name="Sprite2D" type="Sprite2D" parent="top_layer" unique_id=1933845466]
+position = Vector2(305, 232)
+texture = ExtResource("1_pq8q7")
