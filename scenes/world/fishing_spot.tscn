@@ -1,6 +1,162 @@
 [gd_scene format=3 uid="uid://1x5fv774kl7u"]
 
 [ext_resource type="PackedScene" uid="uid://bnanh6mp1ml7a" path="res://scenes/world/environment_3d.tscn" id="1_env3d"]
+[ext_resource type="Script" uid="uid://bmoy7jjkmpex5" path="res://scenes/world/fishing_spot.gd" id="1_iqe64"]
+[ext_resource type="Texture2D" uid="uid://dot5lofcmssxo" path="res://assets/Arkaking/Arkaking_LANCER.png" id="2_np3i6"]
+[ext_resource type="Texture2D" uid="uid://dqw117otkthoi" path="res://assets/Arkaking/Arkaking_IDLE.png" id="2_xgrmt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xt83"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(0, 0, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ektmr"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(34, 0, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv8xu"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(68, 0, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6lgy"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(102, 0, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iygqa"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(0, 42, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay02t"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(34, 42, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db3g6"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(68, 42, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c85hp"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(102, 42, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiog7"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(0, 84, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3eh8"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(34, 84, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5frx"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(68, 84, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ipv4"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(102, 84, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4thl"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(0, 126, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8imv"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(34, 126, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0pma"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(68, 126, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t5rx"]
+atlas = ExtResource("2_np3i6")
+region = Rect2(102, 126, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np3i6"]
+atlas = ExtResource("2_xgrmt")
+region = Rect2(0, 0, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqe64"]
+atlas = ExtResource("2_xgrmt")
+region = Rect2(34, 0, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haykj"]
+atlas = ExtResource("2_xgrmt")
+region = Rect2(0, 42, 34, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pexxd"]
+atlas = ExtResource("2_xgrmt")
+region = Rect2(34, 42, 34, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xt83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xt83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ektmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv8xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6lgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iygqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay02t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db3g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c85hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiog7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3eh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5frx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ipv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4thl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8imv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0pma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t5rx")
+}],
+"loop": false,
+"name": &"cast",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_np3i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqe64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haykj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pexxd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="FishingSpot" type="Control" unique_id=1253611664]
 layout_mode = 3
@@ -9,6 +165,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iqe64")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=970535188]
 layout_mode = 1
@@ -35,10 +192,62 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PlayerPlaceholder" type="ColorRect" parent="Overlay2D" unique_id=908091726]
+[node name="Player" type="AnimatedSprite2D" parent="Overlay2D" unique_id=1078376808]
+position = Vector2(347, 272)
+sprite_frames = SubResource("SpriteFrames_5xt83")
+animation = &"cast"
+autoplay = "idle"
+
+[node name="BiteLabel" type="Label" parent="Overlay2D" unique_id=1174677350]
+visible = false
 layout_mode = 0
-offset_left = 280.0
-offset_top = 176.0
-offset_right = 340.0
-offset_bottom = 296.0
-color = Color(1, 0.85, 0.2, 1)
+offset_left = 335.0
+offset_top = 157.0
+offset_right = 694.0
+offset_bottom = 314.0
+
+[node name="WinLabel" type="Label" parent="Overlay2D" unique_id=127853005]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LoseLabel" type="Label" parent="Overlay2D" unique_id=1723473888]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ArrowUp" type="Label" parent="Overlay2D" unique_id=1103864919]
+visible = false
+layout_mode = 0
+offset_left = 596.0
+offset_top = 112.0
+offset_right = 636.0
+offset_bottom = 135.0
+
+[node name="ArrowDown" type="Label" parent="Overlay2D" unique_id=2058236999]
+visible = false
+layout_mode = 0
+offset_left = 589.0
+offset_top = 261.0
+offset_right = 629.0
+offset_bottom = 284.0
+
+[node name="ArrowLeft" type="Label" parent="Overlay2D" unique_id=987703453]
+visible = false
+layout_mode = 0
+offset_left = 455.0
+offset_top = 204.0
+offset_right = 495.0
+offset_bottom = 227.0
+
+[node name="ArrowRight" type="Label" parent="Overlay2D" unique_id=253999230]
+visible = false
+layout_mode = 0
+offset_left = 742.0
+offset_top = 226.0
+offset_right = 782.0
+offset_bottom = 249.0
+
+[node name="BiteTimer" type="Timer" parent="." unique_id=1855067222]

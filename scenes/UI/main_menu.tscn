@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=4 uid="uid://b7ovh2ckp1xb1"]
+[gd_scene format=4 uid="uid://b7ovh2ckp1xb1"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ydt1u"]
+[ext_resource type="Script" uid="uid://bpetvvp41h0aq" path="res://scripts/main_menu.gd" id="1_ydt1u"]
+[ext_resource type="PackedScene" uid="uid://1x5fv774kl7u" path="res://scenes/world/fishing_spot.tscn" id="2_5jstl"]
 [ext_resource type="PackedScene" uid="uid://b438vw8n43rsk" path="res://scenes/UI/settings_menu.tscn" id="2_ot6gb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p2xm4"]
@@ -119,6 +120,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -3864,7 +3874,7 @@ Button/styles/pressed = SubResource("StyleBoxFlat_chidf")
 font_size = 11
 font_color = Color(0.703808, 0.703808, 0.703808, 1)
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=513992447]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -3872,9 +3882,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ydt1u")
+game_scene = ExtResource("2_5jstl")
 settings_scene = ExtResource("2_ot6gb")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=810929596]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3883,7 +3894,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.389287, 0.389287, 0.389287, 1)
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=1910666991]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.375125
@@ -3898,7 +3909,7 @@ text = "Fisherman's dream"
 label_settings = SubResource("LabelSettings_p2xm4")
 metadata/_edit_use_anchors_ = true
 
-[node name="Play" type="Button" parent="."]
+[node name="Play" type="Button" parent="." unique_id=2111716401]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
@@ -3911,7 +3922,7 @@ theme = SubResource("Theme_vbmxi")
 text = "Play"
 metadata/_edit_use_anchors_ = true
 
-[node name="Settings" type="Button" parent="."]
+[node name="Settings" type="Button" parent="." unique_id=8292100]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
@@ -3925,7 +3936,7 @@ text = "Settings
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="Button" parent="."]
+[node name="Quit" type="Button" parent="." unique_id=220620484]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
@@ -3938,7 +3949,7 @@ theme = SubResource("Theme_vbmxi")
 text = "Quit"
 metadata/_edit_use_anchors_ = true
 
-[node name="InternalAttributions" type="Label" parent="."]
+[node name="InternalAttributions" type="Label" parent="." unique_id=1914832200]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.789062
@@ -3955,7 +3966,7 @@ text = "Developped by Level 03's jam team :
 label_settings = SubResource("LabelSettings_gq26o")
 metadata/_edit_use_anchors_ = true
 
-[node name="ExternalAttributions" type="Label" parent="."]
+[node name="ExternalAttributions" type="Label" parent="." unique_id=1085843444]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.570312

@@ -4,8 +4,7 @@ extends Control
 @export var settings_scene : PackedScene
 
 func _on_play_pressed() -> void:
-	# TODO : change scenes to main game scene
-	print(GameState.scene_rollback_paths)
+	get_tree().change_scene_to_packed(game_scene)
 
 func _on_settings_pressed() -> void:
 	GameState.switch_to_menu(get_tree().current_scene, settings_scene)
