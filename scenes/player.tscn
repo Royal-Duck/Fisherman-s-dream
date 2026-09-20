@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://bjwpy0dogefwh"]
+
+[ext_resource type="Script" uid="uid://d23dheiju0o0" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://lrp3eloeb145" path="res://assets/textures/player_placeholder.png" id="2_qhqgy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"casting",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"cathing",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"dir_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"dir_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"dir_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"dir_up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}],
+"loop": true,
+"name": &"placeholder",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_g2els"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "casting"
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "placeholder"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"placeholder"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fjrip"]
+_data = {
+&"RESET": SubResource("Animation_g2els"),
+&"casting": SubResource("Animation_qlg0r"),
+&"idle": SubResource("Animation_tuyoq"),
+&"placeholder": SubResource("Animation_qhqgy")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dqkch"]
+animation = &"casting"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_smehm"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qlg0r"]
+animation = &"placeholder"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tuyoq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fjrip"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_smehm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ur7pv"]
+states/End/position = Vector2(633, 147)
+states/Start/position = Vector2(163, 188)
+states/casting/node = SubResource("AnimationNodeAnimation_dqkch")
+states/casting/position = Vector2(427, 304)
+states/idle/node = SubResource("AnimationNodeAnimation_smehm")
+states/idle/position = Vector2(365, 188)
+states/placeholder/node = SubResource("AnimationNodeAnimation_qlg0r")
+states/placeholder/position = Vector2(436, 109)
+transitions = ["idle", "casting", SubResource("AnimationNodeStateMachineTransition_tuyoq"), "casting", "idle", SubResource("AnimationNodeStateMachineTransition_fjrip"), "Start", "placeholder", SubResource("AnimationNodeStateMachineTransition_smehm")]
+
+[node name="Player" type="Node2D" unique_id=3613797]
+script = ExtResource("1_g2els")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=858934140]
+sprite_frames = SubResource("SpriteFrames_dqkch")
+animation = &"placeholder"
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=406098546]
+libraries/ = SubResource("AnimationLibrary_fjrip")
+tree_root = SubResource("AnimationNodeStateMachine_ur7pv")
