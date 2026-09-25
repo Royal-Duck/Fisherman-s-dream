@@ -43,6 +43,11 @@ func hide_all_arrows() -> void:
 	for arrow in arrows.values():
 		arrow.visible = false
 
+func show_qte_arrow(dir: String) -> void:
+	hide_all_arrows()
+	arrows[dir].visible = true
+	player.play("qte_" + dir)
+
 func _process(_delta: float) -> void:
 	if phase == Phase.QTE:
 		qte_bar.value = qte_timer.time_left
@@ -83,7 +88,7 @@ func _on_bite_timer_timeout() -> void:
 	bite_label.visible = true
 	await get_tree().create_timer(1.0).timeout
 	bite_label.visible = false
-	arrows[sequence[0]].visible = true
+	show_qte_arrow(sequence[0])
 	qte_bar.max_value = qte_duration
 	qte_bar.value = qte_duration
 	qte_bar.visible = true
@@ -96,7 +101,7 @@ func check_qte_input(dir: String) -> void:
 		if qte_step >= sequence.size():
 			enter_win()
 		else:
-			arrows[sequence[qte_step]].visible = true
+			show_qte_arrow(sequence[qte_step])
 			qte_timer.start()
 			qte_bar.value = qte_duration
 	else:
