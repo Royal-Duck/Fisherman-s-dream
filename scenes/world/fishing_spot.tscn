@@ -251,3 +251,15 @@ offset_right = 782.0
 offset_bottom = 249.0
 
 [node name="BiteTimer" type="Timer" parent="." unique_id=1855067222]
+
+[node name="QteTimer" type="Timer" parent="." unique_id=2001000001]
+wait_time = 5.0
+one_shot = true
+
+[node name="QteBar" type="ProgressBar" parent="Overlay2D" unique_id=2001000002]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 20.0
+offset_right = 824.0
+offset_bottom = 44.0
+value = 100.0

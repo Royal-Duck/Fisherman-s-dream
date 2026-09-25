@@ -1,3 +1,45 @@
-[gd_scene format=3 uid="uid://bnanh6mp1ml7a"]
+[gd_scene load_steps=7 format=3 uid="uid://bnanh6mp1ml7a"]
 
-[node name="Environment3D" type="Node3D" unique_id=781105871]
+[sub_resource type="StandardMaterial3D" id="Mat_Water"]
+albedo_color = Color(0.2, 0.45, 0.7, 1)
+
+[sub_resource type="PlaneMesh" id="Mesh_Water"]
+size = Vector2(20, 12)
+
+[sub_resource type="StandardMaterial3D" id="Mat_Bridge"]
+albedo_color = Color(0.45, 0.35, 0.25, 1)
+
+[sub_resource type="BoxMesh" id="Mesh_Bridge"]
+size = Vector3(2.5, 0.4, 3)
+
+[sub_resource type="StandardMaterial3D" id="Mat_Lily"]
+albedo_color = Color(0.3, 0.65, 0.3, 1)
+
+[sub_resource type="CylinderMesh" id="Mesh_Lily"]
+top_radius = 0.45
+bottom_radius = 0.45
+height = 0.05
+
+[node name="Environment3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.96, 0.28, 0, -0.28, 0.96, 0, 3.2, 9)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, -0.354, 0.354, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 6, 0)
+shadow_enabled = true
+
+[node name="Water" type="MeshInstance3D" parent="."]
+material_override = SubResource("Mat_Water")
+mesh = SubResource("Mesh_Water")
+
+[node name="Bridge" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, 0)
+material_override = SubResource("Mat_Bridge")
+mesh = SubResource("Mesh_Bridge")
+
+[node name="LilyPad" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.05, 1)
+material_override = SubResource("Mat_Lily")
+mesh = SubResource("Mesh_Lily")
